@@ -1,0 +1,96 @@
+.woman-clothes {
+    width: 200px;
+    margin: 10px 40px;
+}
+
+.article-header {
+    display: flex;
+    word-wrap: wrap; 
+}
+
+.article-header h2 {
+    /* color: rgb(232, 182, 21); */
+    color: rgb(65, 65, 65);
+    margin: 10px 0px
+}
+
+.article-header p {
+    text-align: justify;
+    margin: 15px 50px 0 0;
+    font-size: 18px;
+}
+
+
+@media (max-width: 800px) {
+    header {
+        margin-bottom: 0;
+    }
+
+    .woman-clothes  {
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+    }
+
+    .article-header {
+        display: block;
+    }
+
+    .article-header h2 {
+        font-size: 20px;
+    }
+
+
+    .article-header p {
+        margin: 15px 10px 0 0;
+    } 
+}
+
+.article-header-2 {
+    display: flex;
+    margin-top: 30px;
+} 
+
+.article-header-2 h2 {
+    /*color: rgb(232, 182, 21);*/
+    color: rgb(65, 65, 65);
+    margin: 10px 40px;
+}
+
+.article-header-2 p {
+    margin: 10px 40px;
+    text-align: justify;
+    font-size: 18px;
+}
+
+.textile-what-is {
+    width: 300px;
+    margin-top: 20px;
+    margin-right: 40px;
+}
+
+@media (max-width: 1240px) {
+
+    .textile-what-is   {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .article-header-2 h2 {
+        font-size: 20px;
+    }
+
+
+    .article-header-2 p {
+        margin: 15px 10px 0 0;
+    } 
+}
+
+@media (max-width: 280px) { 
+    .woman-clothes {
+        width: 200px;
+        /* margin: 10px 40px; */
+    }
+}

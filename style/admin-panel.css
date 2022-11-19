@@ -1,0 +1,72 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.text h6 {
+	margin-top: 3px;
+	color: rgb(173, 173, 173);
+}
+
+.container {
+	max-width: 1400px;
+	display: block;
+	padding: 10px 20px;
+}
+
+.info-admin-panel {
+	margin-top: 20px;
+	color: rgb(110, 110, 110);
+
+}
+
+.info-admin-panel h2 {
+	margin-top: 20px;
+}
+
+/* .profile-admin a {
+	color: rgb(65, 65, 65);
+	transition: .3s;
+	border-bottom: 1px solid rgb(65, 65, 65);
+
+} */
+
+.profile-admin a:hover {
+	transition: .3s;
+	border-bottom: 1px solid rgb(65, 65, 65);
+}
+
+
+.table-admins {
+	overflow-x:auto;
+	margin-top: 20px;
+	cursor: pointer;
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+.table-admins tr td {
+	border: 1px solid rgb(110, 110, 110);
+	padding: 5px 20px;
+	word-wrap: wrap;
+}
+
+.add-post h2, h3 {
+	margin-top: 20px;
+	color: rgb(110, 110, 110);
+}
+
+
+.price-product-form {
+	width: 300px;
+	height: 40px;
+	margin-bottom: 10px;
+
+}
+
+.title-product-form {
+	width: 300px;
+	height: 40px;
+	margin-bottom: 10px;
+
+}

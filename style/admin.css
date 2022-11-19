@@ -1,0 +1,91 @@
+* {
+    margin: 0px;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+/* .main {} */
+
+/* .authentication {} */
+
+.authentication h3 {
+	margin-top: 50px;
+	text-align: center;
+	color: rgb(65, 65, 65);
+}
+
+
+/* .forum-authentication {} */
+
+.login {
+	margin-top: 10px;
+	width: 200px;
+	height: 25px;
+}
+
+.password {
+	margin-top: 10px;
+
+	width: 200px;
+	height: 25px;
+
+}
+
+.button {
+	cursor: pointer;
+	margin-top: 10px;
+	/* width: 90px;
+	height: 25px; */
+	background-color: rgb(235, 232, 232);
+	border: 0px;
+	padding: 10px 40px;
+
+	transition: .3s;
+}
+
+.button:hover {
+	background-color: rgb(240, 240, 240);
+
+	transition: .3s;
+}
+
+
+/* logo  */
+
+.logo {
+	text-align: center;
+    cursor: pointer;
+    margin-top: 150px	;
+}
+
+.logo a {
+    text-decoration: none;
+
+}
+
+.text {
+    color: rgb(65, 65, 65);
+
+    font-size: 25px;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.text b {
+    font-size: 30px;
+    border: 1px solid black;
+    padding: 2px 5px;
+    margin: 3px;
+}
