@@ -104,6 +104,25 @@
                     <h1>Ваша корзина:</h1>
                 </div>
 
+                <?php 
+                    $product_id = $_GET['productid'];
+                    $user_id = $_GET['userid'];
+
+                    echo ($product_id . '<br>');
+                    echo ($user_id);
+
+                    $basket_sql = "INSERT INTO `basket_users` (user_id, product_id) values ('$user_id', '$product_id')";
+                    mysqli_query($conn, $basket_sql);
+
+                    $basket_callback = "SELECT * FROM `basket_users`";
+                    $result_basket = mysqli_query($conn, $basket_callback);
+
+                    foreach($result_basket as $row) {
+                        print_r($row['product_id']);
+                    }
+
+                ?>
+
           
         </article>
 

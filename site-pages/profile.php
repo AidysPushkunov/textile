@@ -149,7 +149,7 @@
                                 <div class="information-products">
                                     <h4 class="title-product">' . $products["title"] .  $products["id"]. '</h4>
                                     <p class="price-product">' . $products["price"] . ' рублей</p>
-                                    <a href="./basket.php?id=' . $products["id"] . '&userid=' . $_SESSION['user_id'] . '"><div  class="button-buy">Купить</div></a>
+                                    <a href="./basket.php?productid=' . $products["id"] . '&userid=' . $_SESSION['user_id'] . '"><div  class="button-buy">Купить</div></a>
                                 </div>
                             </div>
                         </div>                
