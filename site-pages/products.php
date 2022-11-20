@@ -71,7 +71,7 @@
                             <li><a href="./products.php">Продукция</a></li>
                             <li><a href="./services.php">Услуги</a></li>
                             <li><a href="./about.php">О нас</a></li>
-                            <li><a href="./basket.php" class="basket" id="basket-user">Корзина</a></li>
+                            <li><a href="./basket.php?productid=false&userid=false" class="basket" id="basket-user">Корзина</a></li>
                             <li><a href="./logout.php">Выйти</a></li>
                         </ul>
                     </div>
@@ -118,7 +118,7 @@
                                 <div class="information-products">
                                     <h4 class="title-product">' . $products["title"] . '</h4>
                                     <p class="price-product">' . $products["price"] . ' рублей</p>
-                                    <div  class="button-buy" onclick="addProductToBusket()">Купить</div>
+                                    <a href="./basket.php?productid=' . $products["id"] . '&userid=' . $_SESSION['user_id'] . '"><div  class="button-buy">Купить</div></a>
                                 </div>
                             </div>
                         </div>                

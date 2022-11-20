@@ -213,7 +213,7 @@ include("db.php");
 
             <div class="add-post">
                 <h2>Добавить продукт</h2>
-                <form action="upload.php" method="post" enctype="multipart/form-data">
+                <form action="./upload.php" method="post" enctype="multipart/form-data">
                 <h3>Выберите картинку:</h3>
                     <input type="file" name="image"><br>
                 <h3>Название продукта:</h3>

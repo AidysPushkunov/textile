@@ -147,7 +147,7 @@
                                         <img src="../includes/' . $products["image"] . '" class="image-products">
                                     </div>
                                 <div class="information-products">
-                                    <h4 class="title-product">' . $products["title"] .  $products["id"]. '</h4>
+                                    <h4 class="title-product">' . $products["title"] . '</h4>
                                     <p class="price-product">' . $products["price"] . ' рублей</p>
                                     <a href="./basket.php?productid=' . $products["id"] . '&userid=' . $_SESSION['user_id'] . '"><div  class="button-buy">Купить</div></a>
                                 </div>

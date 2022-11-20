@@ -6,7 +6,7 @@
 	include("db.php");
 	// print_r($_FILES['image']);
 
-	// print_r($_FILES['image']['tmp_name']);
+	print_r($_FILES['image']['tmp_name']);
 	ini_set('display_errors', 1); 
 	ini_set('display_startup_errors', 1); 
 	error_reporting(E_ALL);

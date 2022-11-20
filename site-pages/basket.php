@@ -73,7 +73,7 @@
                             <li><a href="./products.php">Продукция</a></li>
                             <li><a href="./services.php">Услуги</a></li>
                             <li><a href="./about.php">О нас</a></li>
-                            <li><a href="./basket.php" class="basket" id="basket-user">Корзина</a></li>
+                            <li><a href="./basket.php?productid=false&userid=false" class="basket" id="basket-user">Корзина</a></li>
                             <li><a href="./logout.php">Выйти</a></li>
                         </ul>
                     </div>
@@ -103,12 +103,14 @@
                 <div class="basket-style">
                     <h1>Ваша корзина:</h1>
                 </div>
-
+                <table class="table-admins">
+                <tr><td>id</td><td>Номер товара</td><td>Товар</td><td>Цена</td></tr>
                 <?php 
-                
+
+                    $count_all = 0;
                     // error_reporting(0);
 
-                    // $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                    $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                     // echo $url;
                     
                     
@@ -118,25 +120,31 @@
                     $user_id = $_GET['userid'];
 
                     if ($product_id == 'false') {
-                        echo ("Hello");
+                        // echo ("Hello");
 
-                        $basket_callback = "SELECT * FROM `basket_users`";
-                        $result_basket = mysqli_query($conn, $basket_callback);
-    
-                        $product_id = [];
+                        $basket_callback = "SELECT * FROM `basket_users` WHERE user_id = {$_SESSION['user_id']}";
+                        $result_basket = mysqli_query($conn, $basket_callback);                        
     
                         foreach($result_basket as $row) {
-                            echo("<br>");
     
-                            print_r($row['product_id']);
+                            echo("<br>");
                             $row_product = $row['product_id'];
+                            $idbasket= $row['id_basket'];
+                            
     
                             $product_result = mysqli_query($conn, "SELECT * FROM `products` WHERE id={$row_product}");
                             
                             foreach($product_result as $res) {
-                                print_r($res['title']);
-                                print_r($res['price']);
-    
+                                $product_id = $res['id'];
+                                $product_title = $res['title'];
+                                $product_price = $res['price'];
+                                
+                                $count_all = $count_all + $product_price;
+                                
+
+
+
+                                echo("<tr><td>$idbasket</td><td>$product_id</td><td>$product_title</td><td>$product_price</td><td><a href='./delete-product_from_basket.php?deleteid=$idbasket'>Убрать</a></td></tr>");
                             }
                         
                         }
@@ -144,28 +152,30 @@
                     } else {
                         $basket_sql = "INSERT INTO `basket_users` (user_id, product_id) values ('$user_id', '$product_id')";
                         mysqli_query($conn, $basket_sql);
-    
-    
-                
-        
-    
-                        $basket_callback = "SELECT * FROM `basket_users`";
+              
+                        $basket_callback = "SELECT * FROM `basket_users` WHERE user_id = {$_SESSION['user_id']}";
                         $result_basket = mysqli_query($conn, $basket_callback);
     
-                        $product_id = [];
-    
                         foreach($result_basket as $row) {
-                            echo("<br>");
     
-                            print_r($row['product_id']);
+                            echo("<br>");
                             $row_product = $row['product_id'];
+                            $idbasket= $row['id_basket'];
+                            
     
                             $product_result = mysqli_query($conn, "SELECT * FROM `products` WHERE id={$row_product}");
                             
                             foreach($product_result as $res) {
-                                print_r($res['title']);
-                                print_r($res['price']);
-    
+                                $product_id = $res['id'];
+                                $product_title = $res['title'];
+                                $product_price = $res['price'];
+                                
+                                $count_all = $count_all + $product_price;
+                                
+
+
+
+                                echo("<tr><td>$idbasket</td><td>$product_id</td><td>$product_title</td><td>$product_price</td><td><a href='./delete-product_from_basket.php?deleteid=$idbasket'>Убрать</a></td></tr>");
                             }
                         
                         }
@@ -178,10 +188,19 @@
                         // }
                     
                     }
-                    
+
+
+                    /*
+                        Проблема в том что из бд удаляется все товары с одинаковым айди надо сделать так чтобы удалялся только один товар
+                        - Решение добавить в бд basket_users два столбца id и count для количества товаров
+                        - Добавить уникальный id ключ и по нему удалять 
+                    */
+
+                  
 
                 ?>
-
+                </table>
+                <?php echo("<h2>Итого к оплате: $count_all</h2>"); ?>
           
         </article>
 
