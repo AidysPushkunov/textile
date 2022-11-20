@@ -106,26 +106,79 @@
 
                 <?php 
                 
-                    error_reporting(0);
+                    // error_reporting(0);
 
-            
-                        $product_id = $_GET['productid'];
-                        $user_id = $_GET['userid'];
+                    // $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                    // echo $url;
+                    
+                    
+                    // error_reporting(0);
+
+                    $product_id = $_GET['productid'];
+                    $user_id = $_GET['userid'];
+
+                    if ($product_id == 'false') {
+                        echo ("Hello");
+
+                        $basket_callback = "SELECT * FROM `basket_users`";
+                        $result_basket = mysqli_query($conn, $basket_callback);
     
-                        // echo ($product_id . '<br>');
-                        // echo ($user_id);
+                        $product_id = [];
     
+                        foreach($result_basket as $row) {
+                            echo("<br>");
+    
+                            print_r($row['product_id']);
+                            $row_product = $row['product_id'];
+    
+                            $product_result = mysqli_query($conn, "SELECT * FROM `products` WHERE id={$row_product}");
+                            
+                            foreach($product_result as $res) {
+                                print_r($res['title']);
+                                print_r($res['price']);
+    
+                            }
+                        
+                        }
+                        
+                    } else {
                         $basket_sql = "INSERT INTO `basket_users` (user_id, product_id) values ('$user_id', '$product_id')";
                         mysqli_query($conn, $basket_sql);
     
-
-                    $basket_callback = "SELECT * FROM `basket_users`";
-                    $result_basket = mysqli_query($conn, $basket_callback);
-
-                    foreach($result_basket as $row) {
-                        print_r($row['product_id']);
-                    }
+    
                 
+        
+    
+                        $basket_callback = "SELECT * FROM `basket_users`";
+                        $result_basket = mysqli_query($conn, $basket_callback);
+    
+                        $product_id = [];
+    
+                        foreach($result_basket as $row) {
+                            echo("<br>");
+    
+                            print_r($row['product_id']);
+                            $row_product = $row['product_id'];
+    
+                            $product_result = mysqli_query($conn, "SELECT * FROM `products` WHERE id={$row_product}");
+                            
+                            foreach($product_result as $res) {
+                                print_r($res['title']);
+                                print_r($res['price']);
+    
+                            }
+                        
+                        }
+                        
+                        // $product_id = $row['product_id'];
+                        // $products_basket = "SELECT * FROM `products` WHERE id = . '$product_id' . ";
+                        // $products_basket = mysqli_query($conn, $products_basket);
+                        // foreach($products_basket as $res) {
+                        //     print_r($res['title']);
+                        // }
+                    
+                    }
+                    
 
                 ?>
 

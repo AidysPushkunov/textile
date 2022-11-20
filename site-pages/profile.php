@@ -75,7 +75,7 @@
                             <li><a href="./products.php">Продукция</a></li>
                             <li><a href="./services.php">Услуги</a></li>
                             <li><a href="./about.php">О нас</a></li>
-                            <li><a href="./basket.php" class="basket" id="basket-user">Корзина</a></li>
+                            <li><a href="./basket.php?productid=false&userid=false" class="basket" id="basket-user">Корзина</a></li>
                             <li><a href="./logout.php">Выйти</a></li>
                         </ul>
                     </div>
