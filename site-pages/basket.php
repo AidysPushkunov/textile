@@ -200,7 +200,8 @@
 
                 ?>
                 </table>
-                <?php echo("<h2>Итого к оплате: $count_all</h2>"); ?>
+                <?php echo("<h2>Итого к оплате: $count_all</h2> <br><a href='#' class='button-order'>Сделать заказ</a>"); ?>
+                <br>
           
         </article>
 
