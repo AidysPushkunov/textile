@@ -103,8 +103,8 @@
                 <div class="basket-style">
                     <h1>Ваша корзина:</h1>
                 </div>
-                <table class="table-admins">
-                <tr><td>id</td><td>Номер товара</td><td>Товар</td><td>Цена</td></tr>
+                <table class="table-basket">
+                <tr><td>id</td><td class="table-number">Номер товара</td><td>Товар</td><td>Цена</td></tr>
                 <?php 
 
                     $count_all = 0;
@@ -144,7 +144,7 @@
 
 
 
-                                echo("<tr><td>$idbasket</td><td>$product_id</td><td>$product_title</td><td>$product_price</td><td><a href='./delete-product_from_basket.php?deleteid=$idbasket'>Убрать</a></td></tr>");
+                                echo("<tr><td>$idbasket</td><td class='table-number'>$product_id</td><td>$product_title</td><td>$product_price</td><td><a href='./delete-product_from_basket.php?deleteid=$idbasket'>Убрать</a></td></tr>");
                             }
                         
                         }
@@ -175,7 +175,7 @@
 
 
 
-                                echo("<tr><td>$idbasket</td><td>$product_id</td><td>$product_title</td><td>$product_price</td><td><a href='./delete-product_from_basket.php?deleteid=$idbasket'>Убрать</a></td></tr>");
+                                echo("<tr><td>$idbasket</td><td class='table-number'>$product_id</td><td>$product_title</td><td>$product_price</td><td><a href='./delete-product_from_basket.php?deleteid=$idbasket'>Убрать</a></td></tr>");
                             }
                         
                         }

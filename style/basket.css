@@ -6,12 +6,30 @@ h2 {
     margin-left: 35px;
 }
 
-table {
+.table-basket {
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+
     cursor: pointer;
-    margin-left: 35px;
+    margin-left: 15px;
+    margin-right: 5px;
+
     border-collapse: collapse;
     border: 1px solid black;
     /* margin-top: -200px; */
+}
+
+@media (max-width: 750px) {
+    .table-basket {
+        width: 5px;
+
+    }
+
+    .table-number {
+        display: none;
+    }
 }
 
 table tr td {
