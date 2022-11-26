@@ -370,3 +370,7 @@ footer .author a {
 .button-top:hover {
     opacity: 1;
 }
+
+.article-text {
+    margin-left: 35px;
+}

@@ -63,11 +63,11 @@ include("db.php");
     
                     <div class="menu-items">
                         <ul>
-                            <li><a href="#">Статьи</a></li>
-                            <li><a href="#">Продукты</a></li>
-                            <li><a href="#">Заказы</a></li>
-                            <li><a href="#">Клиенты</a></li>
-                            <li><a href="#">Администраторы</a></li>
+                            <li><a href="#addproduct">Добавить продукт</a></li>
+                            <li><a href="#product">Продукты</a></li>
+                            <li><a href="#order">Заказы</a></li>
+                            <li><a href="#client">Клиенты</a></li>
+                            <li><a href="#admin">Администраторы</a></li>
                         </ul>
                     </div>
                 </div>
@@ -91,7 +91,7 @@ include("db.php");
             <div class="info-admin-panel">
                 <h2>Добро пожаловать в панель администратора</h2>
                 <p><i>На этой страничке вы можете редактировать и управлять сайтом Textile Production. Желаем удачи!!!</i></p>
-                <h2>Список администраторов</h2>
+                <h2 id="admin">Список администраторов</h2>
                 <table class="table-admins">
                     <tr><td>id</td><td>name</td><td>password</td><td>respons</td></tr>
                     <?php 
@@ -124,7 +124,7 @@ include("db.php");
                     
                 </table>
 
-                <h2>Список продуктов</h2>
+                <h2 id="product">Список продуктов</h2>
                 <table class="table-admins">
                     <tr><td>id</td><td>title</td><td>price</td></tr>
                     <?php 
@@ -157,7 +157,7 @@ include("db.php");
                     
                 </table>
 
-                <h2>Список клиентов</h2>
+                <h2 id="client">Список клиентов</h2>
                 <table class="table-admins">
                     <tr><td>id</td><td>mail</td><td>name</td></tr>
                     <?php 
@@ -212,7 +212,7 @@ include("db.php");
             </div>
 
             <div class="add-post">
-                <h2>Добавить продукт</h2>
+                <h2 id="addproduct">Добавить продукт</h2>
                 <form action="./upload.php" method="post" enctype="multipart/form-data">
                 <h3>Выберите картинку:</h3>
                     <input type="file" name="image"><br>
@@ -237,6 +237,42 @@ include("db.php");
                 </form>
             </div>
         </div>
+        <div class="container">
+        <h2 id="order">Заказы которые ожидают ответа</h2>
+        <?php 
+            $sql = "SELECT * FROM `basket_users` WHERE buy = true";
+            $result = mysqli_query($conn, $sql);
+
+            
+
+        ?>
+        <table class="table-admins">
+            <?php
+                echo "<tr><td >id_basket</td><td>user_id</td><td>mail</td><td>product_id</td><td>buy</td></tr>";
+                
+                foreach($result as $res) {
+                    $id_basket    = $res['id_basket'];
+                    $user_id      = $res['user_id'];
+                    $product_id   = $res['product_id'];
+                    $buy          = $res['buy'];
+
+                    $sql_update = "UPDATE `basket_users` SET buy = true WHERE user_id = $user_id";
+                    mysqli_query($conn, $sql_update);   
+
+                    $sql_email = "SELECT * FROM `users` WHERE id = $user_id";
+
+                    $res_email = mysqli_query($conn, $sql_email);
+                    foreach($res_email as $ress) {
+                        $mail = $ress['mail'];
+                    }
+    
+
+                    echo "<tr><td>$id_basket</td><td>$user_id</td><td>$mail</td><td>$product_id</td><td>$buy</td></tr>";
+                }
+            ?>
+        </table>
+
+    </div>
     </div>
     <script src="../scripts/burger.js"></script>
 </body>
